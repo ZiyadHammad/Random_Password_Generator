@@ -2,7 +2,7 @@
 const resultEl = document.getElementById('result');
 const lengthEl = document.getElementById('length');
 const uppercaseEl = document.getElementById('uppercase');
-const lowercaeseEl = document.getElementById('lowercase');
+const lowercaseEl = document.getElementById('lowercase');
 const numbersEl = document.getElementById('numbers');
 const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generate');
@@ -18,7 +18,7 @@ const randomFunc = {
 // Retrieving values from User
 generateEl.addEventListener('click', () => {
     const length = Number(lengthEl.value)
-    const hasLower = lowercaeseEl.checked
+    const hasLower = lowercaseEl.checked
     const hasUpper = uppercaseEl.checked
     const hasNumbers = numbersEl.checked
     const hasSymbols = symbolsEl.checked
@@ -37,14 +37,15 @@ clipboardEl.addEventListener('click', () => {
     textArea.select()
     document.execCommand('copy')
     alert('Password copied successfully')
+    textarea.remove();
 })
 
-function generatedPassword(lower, upper, symbol, number, length) {
+function generatedPassword(lower, upper, number, symbol, length) {
     // init password var
     let password = ''
-    // filter out unchecked types
+    // find out which boxes were checked
     const checkedCount = lower + upper + number + symbol
-    console.log(checkedCount)
+    // filter out the boxes that were not checked
     const checkedArr = [{lower},{upper},{number},{symbol}].filter(item => Object.values(item)[0])
     console.log(checkedArr)
     
@@ -52,7 +53,7 @@ function generatedPassword(lower, upper, symbol, number, length) {
     if(checkedCount === 0) return password
 
     // loop over length
-    for(let i = 0; i < length; i ++) {
+    for(let i = 0; i < length; i += checkedCount) {
         checkedArr.forEach(check => {
             const funcName = Object.keys(check)[0]
             password += randomFunc[funcName]()
@@ -61,7 +62,7 @@ function generatedPassword(lower, upper, symbol, number, length) {
     }
     const finalPassword = password.slice(0, length)
 
-    return finalPassword.shuffle()
+    return finalPassword
 
    
 }
@@ -83,7 +84,6 @@ function getRandomSymbol() {
     let symbols = "!@#$%^&*()-_+=[]{};:'/.,"
     return symbols.charAt(Math.floor(Math.random() * symbols.length))
 }
-
 
 String.prototype.shuffle = function () {
     var a = this.split(""),
