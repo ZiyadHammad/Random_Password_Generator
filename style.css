@@ -5,40 +5,26 @@
 }
 
 body {
-	background-color: #3B3B98;
-	color: #fff;
+	background-color: rgb(28,28,28);
+	color: rgb(255, 255, 255);
 	display: flex;
 	font-family: 'Muli', sans-serif;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 10px;
-	min-height: 100vh;
-}
-
-p {
-	margin: 5px 0;
-}
-
-h2 {
-	margin: 10px 0 20px;
-	text-align: center;
-}
-
-input[type=checkbox] {
-	margin-right: 0;
+	height: 100vh;
 }
 
 .container {
-	background-color: #23235B;
+	background-color: rgba(0, 230, 64);
 	box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
 	padding: 20px;
-	width: 350px;
-	max-width: 100%;
+	width: 22rem;
+	height: 24rem;
 }
 
-.result-container {
-	background-color: rgba(0, 0, 0, 0.4);
+.generator-container {
+	background-color: rgba(5, 121, 44, 0.4);
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -50,12 +36,7 @@ input[type=checkbox] {
 	width: 100%;
 }
 
-.result-container #result {
-  	word-wrap: break-word;
-	max-width: calc(100% - 40px);
-}
-
-.result-container .btn {
+.generator-container .btn{
 	font-size: 20px;
 	position: absolute;
 	top: 5px;
@@ -63,55 +44,51 @@ input[type=checkbox] {
 	height: 40px;
 	width: 40px;
 }
-
-.btn {
-	border: none;
-	color: #fff;
-	cursor: pointer;
-	font-size: 16px;
-	padding: 8px 12px;
-	background-color: #3B3B98;
+.generator-container #result {
+	word-wrap: break-word;
+  	max-width: calc(100% - 40px);
 }
-
-.btn-large {
-	display: block;
-	width: 100%;
-}
-
 .setting {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin: 15px 0;
 }
-textarea{
+
+.btn-large {
+	display: block;
+	width: 100%;
+}
+.btn {
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 8px 12px;
+	background-color: rgba(3, 59, 22, 0.4);
+}
+
+textarea {
 	display: none;
 }
 
-@media screen and (max-width: 400px) {
-	.result-container {
-		font-size: 14px;
-	}
-}
 
-/* SOCIAL PANEL CSS */
-.social-panel-container {
+/* Socials */
+.social-container {
 	position: fixed;
-	right: 0;
-	bottom: 80px;
+	right: 0px;
+	top: 80px;
 	transform: translateX(100%);
 	transition: transform 0.4s ease-in-out;
 }
-
-.social-panel-container.visible {
+.social-container.visible {
 	transform: translateX(-10px);
 }
-
-.social-panel {	
+.social {	
 	background-color: #fff;
 	border-radius: 16px;
 	box-shadow: 0 16px 31px -17px rgba(0,31,97,0.6);
-	border: 5px solid #001F61;
+	border: 5px solid rgba(0, 230, 64);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -123,7 +100,7 @@ textarea{
 	max-width: calc(100% - 10px);
 }
 
-.social-panel button.close-btn {
+.social button.close-btn {
 	border: 0;
 	color: #97A5CE;
 	cursor: pointer;
@@ -132,13 +109,12 @@ textarea{
 	top: 5px;
 	right: 5px;
 }
-
-.social-panel button.close-btn:focus {
+.social button.close-btn:focus {
 	outline: none;
 }
 
-.social-panel p {
-	background-color: #001F61;
+.social p {
+	background-color: rgba(0, 230, 64);
 	border-radius: 0 0 10px 10px;
 	color: #fff;
 	font-size: 14px;
@@ -153,16 +129,16 @@ textarea{
 	width: 235px;
 }
 
-.social-panel p i {
+.social p i {
 	margin: 0 5px;
 }
 
-.social-panel p a {
+.social p a {
 	color: #FF7500;
 	text-decoration: none;
 }
 
-.social-panel h4 {
+.social h4 {
 	margin: 20px 0;
 	color: #97A5CE;	
 	font-family: 'Muli';	
@@ -171,18 +147,18 @@ textarea{
 	text-transform: uppercase;
 }
 
-.social-panel ul {
+.social ul {
 	display: flex;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
 }
 
-.social-panel ul li {
+.social ul li {
 	margin: 0 10px;
 }
 
-.social-panel ul li a {
+.social ul li a {
 	border: 1px solid #DCE1F2;
 	border-radius: 50%;
 	color: #001F61;
@@ -195,23 +171,23 @@ textarea{
 	text-decoration: none;
 }
 
-.social-panel ul li a:hover {
+.social ul li a:hover {
 	border-color: #FF6A00;
 	box-shadow: 0 9px 12px -9px #FF6A00;
 }
 
 .floating-btn {
 	border-radius: 26.5px;
-	background-color: #001F61;
-	border: 1px solid #001F61;
+	background-color: rgba(0, 230, 64);
+	border: 1px solid rgba(0, 230, 64);
 	box-shadow: 0 16px 22px -17px #03153B;
-	color: #fff;
+	color: rgb(8, 8, 8);
 	cursor: pointer;
 	font-size: 16px;
 	line-height: 20px;
 	padding: 12px 20px;
 	position: fixed;
-	bottom: 20px;
+	top: 20px;
 	right: 20px;
 	z-index: 999;
 }
@@ -236,21 +212,10 @@ textarea{
 	left: 50%;
 	transform: translateX(-50%);
 	text-align: center;
-	z-index: 998
+	z-index: 998;
 }
 
 .floating-text a {
 	color: #FF7500;
 	text-decoration: none;
-}
-
-@media screen and (max-width: 480px) {
-
-	.social-panel-container.visible {
-		transform: translateX(0px);
-	}
-	
-	.floating-btn {
-		right: 10px;
-	}
 }
