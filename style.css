@@ -69,9 +69,10 @@ body {
 }
 
 textarea {
-	display: none;
+	background-color: rgb(28,28,28);
+	color: rgb(28,28,28);
+	border: rgb(28,28,28);
 }
-
 
 /* Socials */
 .social-container {
